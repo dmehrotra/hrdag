@@ -1,4 +1,3 @@
-
 from cltk.phonology.arabic.romanization import transliterate
 import csv
 import pyphen
@@ -17,8 +16,8 @@ with open('data/names.csv','r',encoding='utf-8') as f:
     next(reader, None)
     for r in reader:
       ar_string = r[0]
-      l=transliterate(mode, ar_string, "", reverse)
-      names.append([r[0],dic.inserted(l)])
+      transliterated= transliterate(mode, ar_string, "", reverse)
+      names.append([r[0],dic.inserted(transliterated)])
 
      
 with open("cleaned.csv", 'w',encoding='utf-8') as csv_file:
